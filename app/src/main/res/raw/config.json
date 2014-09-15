@@ -1,0 +1,8 @@
+{
+    "components": {
+        "asyncManager": {
+            "className": "fr.grousset.fastsnail.async.AsyncManager",
+            "singleton": true
+        }
+    }
+}
