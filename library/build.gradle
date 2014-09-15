@@ -22,9 +22,8 @@ group = 'fr.grousset.fastsnail'
 android {
 
     //publishNonDefault true
-
-    compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    compileSdkVersion 20
+    buildToolsVersion "19.1.0"
 
     lintOptions {
         abortOnError false
