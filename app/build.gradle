@@ -36,7 +36,15 @@ android {
 
 apply plugin: 'me.champeau.gradle.groovy-android'
 
+repositories {
+    maven {
+        url 'http://repo.grousset.fr/snapshots'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
+    //compile 'fr.grousset.fastsnail:fastsnail:0.1-SNAPSHOT'
+
 }
