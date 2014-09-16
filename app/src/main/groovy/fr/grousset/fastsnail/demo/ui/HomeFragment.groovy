@@ -12,6 +12,7 @@ import fr.grousset.fastsnail.demo.R
 import fr.grousset.fastsnail.transform.InjectLayout
 import fr.grousset.fastsnail.transform.InjectView
 import groovy.transform.CompileStatic
+import groovy.transform.TypeCheckingMode
 
 
 /**
@@ -24,8 +25,8 @@ import groovy.transform.CompileStatic
  *
  *
  */
-@CompileStatic
-//@InjectLayout(R.layout.fragment_home)
+@CompileStatic(TypeCheckingMode.SKIP)
+@InjectLayout(R.layout.fragment_home)
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
