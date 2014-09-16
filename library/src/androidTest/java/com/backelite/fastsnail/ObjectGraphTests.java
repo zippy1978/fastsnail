@@ -33,7 +33,7 @@ public class ObjectGraphTests extends AndroidTestCase {
         assertEquals(hashCode1, hashCode2);
     }
 
-    public void testgetComponentPrototype() {
+    public void testGetComponentPrototype() {
 
         ObjectGraph.getInstance().loadConfiguration("{\n" +
                 "    \"components\": {\n" +
