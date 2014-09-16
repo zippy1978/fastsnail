@@ -77,11 +77,12 @@ public class InjectLayoutASTTransformation implements ASTTransformation {
             }
 
             // Add return inflate in two parts : assignment (first expression) and return (last)
-                blockStatement.statements.add(0, new ExpressionStatement(
-                        new DeclarationExpression(new VariableExpression('fastSnailFragmentView'),
-                                Token.newSymbol(Types.EQUAL, 0, 0), this.createFragmentInflateCall(methodNode, valueExpression)))
-                )
-                blockStatement.statements.add(new ReturnStatement(new VariableExpression('fastSnailFragmentView')))
+            blockStatement.statements.add(0, new ExpressionStatement(
+                    new DeclarationExpression(new VariableExpression('fastSnailFragmentView'),
+                            Token.newSymbol(Types.EQUAL, 0, 0), this.createFragmentInflateCall(methodNode, valueExpression)))
+            )
+            blockStatement.statements.add(new ReturnStatement(new VariableExpression('fastSnailFragmentView')))
+
 
 
         }

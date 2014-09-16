@@ -11,7 +11,7 @@ import android.widget.TextView;
 import fr.grousset.fastsnail.demo.R
 import fr.grousset.fastsnail.transform.InjectLayout
 import fr.grousset.fastsnail.transform.InjectView
-
+import groovy.transform.CompileStatic
 
 
 /**
@@ -22,8 +22,10 @@ import fr.grousset.fastsnail.transform.InjectView
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  *
+ *
  */
-@InjectLayout(R.layout.fragment_home)
+@CompileStatic
+//@InjectLayout(R.layout.fragment_home)
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,8 +38,7 @@ public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    @InjectView(R.id.contentTextView)
-    TextView mContentTextView
+    @InjectView(R.id.contentTextView) TextView mContentTextView
 
     /**
      * Use this factory method to create a new instance of
