@@ -3,6 +3,8 @@ package fr.grousset.fastsnail.transform
 import android.app.Activity
 import android.app.Fragment
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import org.codehaus.groovy.ast.*
 import org.codehaus.groovy.ast.expr.ArgumentListExpression
 import org.codehaus.groovy.ast.expr.BooleanExpression
@@ -95,8 +97,8 @@ public class InjectLayoutASTTransformation implements ASTTransformation {
         String inflaterName = params[0].name
         String containerName = params[1].name
 
-        return new MethodCallExpression(new VariableExpression(inflaterName), 'inflate',
-                new ArgumentListExpression(valueExpression, new VariableExpression(containerName), new ConstantExpression(false)))
+        return new MethodCallExpression(new VariableExpression(inflaterName, ClassHelper.make(LayoutInflater.class)), 'inflate',
+                new ArgumentListExpression(valueExpression, new VariableExpression(containerName, ClassHelper.make(ViewGroup.class)), new ConstantExpression(false)))
 
     }
 

@@ -2,6 +2,7 @@ package fr.grousset.fastsnail.transform
 
 import android.app.Activity
 import android.app.Fragment
+import android.view.View
 import org.codehaus.groovy.ast.*
 import org.codehaus.groovy.ast.expr.DeclarationExpression
 import org.codehaus.groovy.ast.expr.Expression
@@ -77,7 +78,7 @@ public class InjectViewASTTransformation implements ASTTransformation {
 
             ExpressionStatement expressionStatement = new ExpressionStatement(
                     AstUtils.buildFieldAssignmentExpression(fieldNode,
-                            new MethodCallExpression(new VariableExpression('fastSnailFragmentView'), 'findViewById', valueExpression)))
+                            new MethodCallExpression(new VariableExpression('fastSnailFragmentView', ClassHelper.make(View.class)), 'findViewById', valueExpression)))
             if (fastSnailFragmentViewDeclarationPosition >= 0) {
                 // Declaration found : add field assignment after
                 blockStatement.statements.add(fastSnailFragmentViewDeclarationPosition + 1, expressionStatement)

@@ -5,3 +5,9 @@
 .DS_Store
 /build
 *.iml
+
+library/src/main/groovy/fr/grousset/fastsnail/transform/InjectLayoutASTTransformation.groovy
+
+library/src/main/java/fr/grousset/fastsnail/AndroidUtils.java
+
+library/src/main/groovy/fr/grousset/fastsnail/transform/InjectLayoutASTTransformation.groovy
