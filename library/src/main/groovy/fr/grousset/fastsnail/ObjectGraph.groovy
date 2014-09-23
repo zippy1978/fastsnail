@@ -15,9 +15,9 @@ public class ObjectGraph {
 
     private static final String TAG = 'ObjectGraph'
 
-    private Context mContext
-    private Map mConfig = [components: [:]]
-    private Map mSingletons = [:]
+    private Context context
+    private Map config = [components: [:]]
+    private Map singletons = [:]
 
     /**
      * Add component to the object graph
@@ -27,7 +27,7 @@ public class ObjectGraph {
      */
     public void addComponent(String name, Class clazz, boolean singleton) {
 
-        (mConfig['components'] as Map).put(name, ['className': clazz.name, 'singleton': singleton])
+        (config['components'] as Map).put(name, ['className': clazz.name, 'singleton': singleton])
     }
 
     /**
@@ -39,11 +39,11 @@ public class ObjectGraph {
 
         def instance = null
 
-        if (!mConfig) {
+        if (!config) {
             Log.e(TAG, 'Configuration not loaded !')
         } else {
-            if (mConfig['components']) {
-                def info = mConfig['components'][name]
+            if (config['components']) {
+                def info = config['components'][name]
 
                 if (info) {
                     instance = this.getComponentInstance(name, info)
@@ -67,11 +67,11 @@ public class ObjectGraph {
 
         // Singleton ?
         if (info['singleton']) {
-            def singletonInstance = mSingletons[name]
+            def singletonInstance = singletons[name]
             if (!singletonInstance) {
                 synchronized (this) {
                     singletonInstance = Class.forName(info['className'] as String)?.newInstance()
-                    mSingletons.put(name, singletonInstance)
+                    singletons.put(name, singletonInstance)
                 }
             }
 
@@ -98,7 +98,7 @@ public class ObjectGraph {
 
         if (component instanceof ContextAware) {
             ContextAware contextAware = component as ContextAware
-            contextAware.context = mContext
+            contextAware.context = context
         }
     }
 
@@ -119,10 +119,10 @@ public class ObjectGraph {
      */
     public void loadConfiguration(String config, Context context) {
 
-        mContext = context
+        this.context = context
 
         Gson gson = new Gson()
-        mConfig = gson.fromJson(config, HashMap.class)
+        this.config = gson.fromJson(config, HashMap.class)
     }
 
     /**
