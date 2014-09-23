@@ -1,3 +1,5 @@
+package fr.grousset.fastsnail.wear.data;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
