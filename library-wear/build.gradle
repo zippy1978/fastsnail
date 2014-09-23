@@ -1,0 +1,80 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.0'
+        classpath 'me.champeau.gradle:gradle-groovy-android-plugin:0.3.0'
+    }
+}
+
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+version = '0.1-SNAPSHOT'
+group = 'fr.grousset.fastsnail'
+
+
+android {
+
+    //publishNonDefault true
+    compileSdkVersion 20
+    buildToolsVersion "19.1.0"
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+apply plugin: 'me.champeau.gradle.groovy-android'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+configurations {
+    deployerJars
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    provided "fr.grousset.fastsnail:fastsnail:$version"
+    provided 'com.google.android.support:wearable:1.0.0'
+
+    provided 'org.codehaus.groovy:groovy:2.4.0-beta-3:grooid'
+    provided('org.codehaus.groovy:groovy-json:2.4.0-beta-3') {
+        transitive = false
+    }
+
+    deployerJars 'org.apache.maven.wagon:wagon-ssh:1.0-alpha-3'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            name = 'sshDeployer' // optional
+            configuration = configurations.deployerJars
+            repository(url: groussetRepoUrl) {
+                authentication(userName: groussetRepoUsername, password: groussetRepoPassword)
+            }
+            snapshotRepository(url: groussetSnapshotsRepoUrl) {
+                authentication(userName: groussetRepoUsername, password: groussetRepoPassword)
+            }
+
+            pom.project {
+                name 'fastsnail Android Wear Groovy Library'
+                artifactId 'fastsnail-wear'
+                packaging 'aar'
+            }
+
+        }
+    }
+
+}
