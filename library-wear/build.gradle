@@ -46,7 +46,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     provided "fr.grousset.fastsnail:fastsnail:$version"
+
     provided 'com.google.android.support:wearable:1.0.0'
+    provided 'com.google.android.gms:play-services-wearable:+'
 
     provided 'org.codehaus.groovy:groovy:2.4.0-beta-3:grooid'
     provided('org.codehaus.groovy:groovy-json:2.4.0-beta-3') {

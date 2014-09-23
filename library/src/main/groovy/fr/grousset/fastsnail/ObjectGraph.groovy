@@ -75,13 +75,31 @@ public class ObjectGraph {
                 }
             }
 
+            this.injectContext(singletonInstance)
+
             return singletonInstance
 
         } else {
             // Prototype
-            return Class.forName(info['className'] as String)?.newInstance()
+            def prototype =  Class.forName(info['className'] as String)?.newInstance()
+
+            this.injectContext(prototype)
+
+            return prototype
         }
 
+    }
+
+    /**
+     * Inject application context into a component if it implements interface ContextAware
+     * @param component Component
+     */
+    private void injectContext(Object component) {
+
+        if (component instanceof ContextAware) {
+            ContextAware contextAware = component as ContextAware
+            contextAware.context = mContext
+        }
     }
 
     /**

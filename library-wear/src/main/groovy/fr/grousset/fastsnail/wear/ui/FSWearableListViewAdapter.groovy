@@ -14,7 +14,7 @@ import groovy.transform.CompileStatic
  */
 public class FSWearableListViewAdapter extends WearableListView.Adapter {
 
-    @Delegate List mItems = []
+    @Delegate List items = []
 
     Closure onBindViewHolder
 
@@ -35,7 +35,7 @@ public class FSWearableListViewAdapter extends WearableListView.Adapter {
     @Override
     void onBindViewHolder(WearableListView.ViewHolder viewHolder, int i) {
 
-        Object item = mItems.get(i)
+        Object item = items.get(i)
 
         if (this.onBindViewHolder) {
             this.onBindViewHolder.call(viewHolder, item)
@@ -44,6 +44,6 @@ public class FSWearableListViewAdapter extends WearableListView.Adapter {
 
     @Override
     int getItemCount() {
-        return mItems.size()
+        return items.size()
     }
 }
