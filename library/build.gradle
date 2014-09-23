@@ -24,6 +24,13 @@ android {
     //publishNonDefault true
     compileSdkVersion 20
     buildToolsVersion "19.1.0"
+    defaultConfig {
+        applicationId 'fr.grousset.fastsnail'
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName '1.0'
+    }
 
     lintOptions {
         abortOnError false
@@ -44,7 +51,7 @@ configurations {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    provided 'com.android.support:appcompat-v7:20.0.0'
     provided 'org.codehaus.groovy:groovy:2.4.0-beta-3:grooid'
     provided('org.codehaus.groovy:groovy-json:2.4.0-beta-3') {
         transitive = false
