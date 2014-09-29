@@ -13,7 +13,7 @@ import groovy.lang.Closure;
  * For some reason, this class cannot be written in Groovy.
  * @author gi.grousset@gmail.com
  */
-public class WearableDataService  extends WearableListenerService {
+public class WearableDataService extends WearableListenerService {
 
     private WearableDataClient mClient;
 
@@ -27,11 +27,13 @@ public class WearableDataService  extends WearableListenerService {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        mClient.disconnect();
     }
 
     @Override
     public void onPeerConnected(Node peer) {
         super.onPeerConnected(peer);
+        mClient.onPeerConnected(peer);
     }
 
     @Override
