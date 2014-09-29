@@ -19,17 +19,23 @@ public class FSWearableListViewAdapter extends WearableListView.Adapter {
     Closure onBindViewHolder
 
     private int itemResId
-    private final LayoutInflater mInflater
+    private final LayoutInflater inflater
 
     public FSWearableListViewAdapter(Context context, int itemResId) {
-        mInflater = LayoutInflater.from(context)
+        inflater = LayoutInflater.from(context)
+        this.itemResId = itemResId
+    }
+
+    public FSWearableListViewAdapter(Context context, int itemResId, Closure onBindViewHolder) {
+        inflater = LayoutInflater.from(context)
+        this.onBindViewHolder = onBindViewHolder
         this.itemResId = itemResId
     }
 
     @Override
     WearableListView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 
-        return new WearableListView.ViewHolder(mInflater.inflate(itemResId, null))
+        return new WearableListView.ViewHolder(inflater.inflate(itemResId, null))
     }
 
     @Override
