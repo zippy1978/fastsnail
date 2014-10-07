@@ -16,7 +16,7 @@ public class AndroidUtils {
 
         String result =  name
 
-        if (name.startsWith('m')) {
+        if (name.length() > 1 && name.startsWith('m') && Character.isUpperCase(name.charAt(1))) {
             String noPrefix = name - 'm'
             result = noPrefix[0].toLowerCase() + noPrefix.substring(1)
         }
