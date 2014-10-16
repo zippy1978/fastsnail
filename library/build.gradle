@@ -25,7 +25,7 @@ android {
 
     //publishNonDefault true
     compileSdkVersion 20
-    buildToolsVersion "19.1.0"
+    buildToolsVersion "20"
     defaultConfig {
         applicationId 'fr.grousset.fastsnail'
         minSdkVersion 15

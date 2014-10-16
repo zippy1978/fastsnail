@@ -3,6 +3,10 @@
         "asyncManager": {
             "className": "fr.grousset.fastsnail.async.AsyncManager",
             "singleton": true
+        },
+        "requestManager": {
+            "className": "fr.grousset.fastsnail.demo.manager.RequestManager",
+            "singleton": true
         }
     }
 }

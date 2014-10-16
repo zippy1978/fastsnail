@@ -24,7 +24,13 @@ android {
 
     //publishNonDefault true
     compileSdkVersion 20
-    buildToolsVersion "19.1.0"
+    buildToolsVersion "20"
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName '1.0'
+    }
 
     lintOptions {
         abortOnError false
