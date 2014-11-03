@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastsnail.iml" filepath="$PROJECT_DIR$/fastsnail.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library-wear/library-wear.iml" filepath="$PROJECT_DIR$/library-wear/library-wear.iml" />
     </modules>
   </component>
 </project>

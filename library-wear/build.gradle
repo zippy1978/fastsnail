@@ -52,7 +52,8 @@ configurations {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    provided "fr.grousset.fastsnail:fastsnail:$version"
+    //provided "fr.grousset.fastsnail:fastsnail:$version"
+    compile project(':library')
 
     provided 'com.google.android.support:wearable:1.0.0'
     provided 'com.google.android.gms:play-services-wearable:+'
